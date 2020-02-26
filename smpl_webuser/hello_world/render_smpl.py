@@ -84,10 +84,10 @@ rn.vc = LambertianPointLight(
 ## Show it using OpenCV
 import cv2
 cv2.imwrite( "./test.png", rn.r )
-print 'image saved'
+print('image saved')
 
 # cv2.imshow('render_SMPL', rn.r)
-# print ('..Print any key while on the display window')
+# print('..Print any key while on the display window')
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
 

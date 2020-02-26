@@ -5,13 +5,16 @@ Tianye Li <tianye.li@tuebingen.mpg.de>
 
 import os
 import numpy as np
-import cPickle as pickle
+import pickle
 
 # -----------------------------------------------------------------------------
 
 def load_binary_pickle( filepath ):
     with open( filepath, 'rb' ) as f:
-        data = pickle.load( f )
+        u = pickle._Unpickler(f)
+        u.encoding ='latin1'
+        data = u.load()
+
     return data
 
 # -----------------------------------------------------------------------------
@@ -31,7 +34,7 @@ def load_simple_obj(filename):
         elif type == 'float':
             return float(string)
         else:
-            print 'Wrong type specified'
+            print('Wrong type specified')
 
     vertices = []
     faces = []
@@ -63,7 +66,7 @@ def write_simple_obj( mesh_v, mesh_f, filepath, verbose=False ):
         for f in mesh_f+1: # Faces are 1-based, not 0-based in obj files
             fp.write( 'f %d %d %d\n' %  (f[0], f[1], f[2]) )
     if verbose:
-        print 'mesh saved to: ', filepath 
+        print('mesh saved to: ', filepath)
 
 # -----------------------------------------------------------------------------
 

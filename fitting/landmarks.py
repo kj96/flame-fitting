@@ -5,7 +5,7 @@ Tianye Li <tianye.li@tuebingen.mpg.de>
 
 import numpy as np
 import chumpy as ch
-import cPickle as pickle
+import pickle
 
 from fitting.util import load_binary_pickle
 
